@@ -1,0 +1,113 @@
+body{
+    background-color: #a8d6d1;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.clock{
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    
+background: #a8d6d1;
+box-shadow:  20px 20px 60px #8fb6b2,
+             -20px -20px 60px #c1f6f0;
+}
+.outer{
+    position: relative;
+    background-color: #a8d6d1;
+    overflow: hidden;
+    height: 95%;
+    width: 95%;
+    border-radius: 50%;
+    padding: 2%;
+}
+.outer::after{
+    transform: rotate(90deg);
+}
+.outer::after,
+.outer::before,
+.outer .marking{
+    content: '' ;
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: rgba(253, 255, 255,0.7);
+    z-index: 0;
+    left: 49%;
+}
+.outer .marking {
+
+    width: 5px;
+    text-align: center;
+ }
+.outer .marking.marking-one{
+    background-color: rgba(253, 255, 255,0.7);
+    transform: rotate(30deg);
+}
+.outer .marking.marking-two{
+    background-color: rgba(253, 255, 255,0.7);
+    transform: rotate(60deg);
+}
+.outer .marking.marking-three{
+    background-color: rgba(253, 255, 255,0.7);
+    transform: rotate(120deg);
+}
+.outer .marking.marking-four{
+    background-color: rgba(253, 255, 255,0.7);
+    transform: rotate(150deg);
+}
+.inner{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: #a8d6d1;
+    border-radius: 100%;
+    z-index: 1;
+  }
+  
+  .inner::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 18px;
+    margin-left: -8px;
+    margin-top: -6px;
+    background: #323236;
+    z-index: 11;
+  }
+  .hand{
+    width: 50%;
+  right: 50%;
+  height: 6px;
+  background: #0b0b0c;
+  position: absolute;
+  top: 50%;
+  border-radius: 6px;
+  transform-origin: right;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  }
+  .hand.hour{
+    width: 30%;
+    z-index: 3;
+  }
+  .hand.min{
+   
+    height: 3px;
+    z-index: 10;
+    width: 40%;
+  }
+  .hand.sec{
+    background: rgb(231, 112, 112);
+    width: 47%;
+    height: 2px;
+  }
