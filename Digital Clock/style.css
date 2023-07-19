@@ -1,0 +1,20 @@
+body{
+    background-color: #343030;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+div{
+    margin: 25%;
+}
+span{
+    text-align: center;
+    margin: 30px;
+    padding: 50px;
+    color: white;
+    font-size: 50px;
+    box-shadow: 50px;
+    background: #2d2a2a;
+    box-shadow:  -20px -20px 60px #262424,
+                 20px 20px 60px #343030;
+    border-radius: 20px;
+}
