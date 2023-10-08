@@ -45,11 +45,18 @@ body {
     display: flex;
     flex-direction: row;
 }
+.search-bar1{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 80px;
+}
 
 .search {
     width: 80%;
     height: 40px;
-    border-radius: 20px;
+    border-radius: 10px;
     border: none;
     margin: 20px;
 }
@@ -117,6 +124,16 @@ h1.temp {
     flex-direction: column; 
     align-items: center; 
     margin-top: 40px;
+}
+@media only screen and (max-width: 800px) {
+    .card {
+    display: none;
+} 
+}
+@media only screen and (min-width: 800px){
+.search-bar1{
+    display: none;
+}
 }
 
 .forecast-item {
