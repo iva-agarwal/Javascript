@@ -4,11 +4,11 @@ body {
     font-family: 'Poppins', sans-serif;
     text-align: center;
     color: white;
-    background-color: rgba(96, 91, 91, 0.3); /* Adjust the last value for opacity (0 is fully transparent, 1 is fully opaque) */
-    background-image: url(images/cVSn5h.jpg);
+    background-color: rgba(96, 91, 91, 0.3); 
+    background-image: url(images/clear_wp.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: overlay; /* This helps the background color to blend with the image */
+    background-blend-mode: overlay; 
     height: 100vh;
     margin: 0;
 }
@@ -45,7 +45,7 @@ body {
     display: flex;
     flex-direction: row;
 }
-.search-bar1{
+.min{
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -53,7 +53,7 @@ body {
     padding: 80px;
 }
 
-.search {
+.search1, .search2 {
     width: 80%;
     height: 40px;
     border-radius: 10px;
@@ -69,7 +69,7 @@ button {
     background-color: transparent;
 }
 
-.search-icon {
+.search-icon1, .search-icon2 {
     width: 20px;
     border-radius: 50%;
 }
@@ -131,7 +131,7 @@ h1.temp {
 } 
 }
 @media only screen and (min-width: 800px){
-.search-bar1{
+.min{
     display: none;
 }
 }
