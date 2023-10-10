@@ -1,29 +1,35 @@
 const apiKey = "714af16bdd4df2ba0be41246cb20d281";
 const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-const searchBar = document.querySelector(".search");
-const searchBtn = document.querySelector(".search-icon");
-const weatherIcon = document.querySelector(".weather-icon");
-const icon = document.querySelector(".icon");
-
 const forecastUrl = "https://api.openweathermap.org/data/2.5/forecast?units=metric&q=";
+
+const searchBar1 = document.querySelector(".search1");
+const searchBar2 = document.querySelector(".search2");
+const searchBtn1 = document.querySelector(".search-icon1");
+const searchBtn2 = document.querySelector(".search-icon2");
+const weatherIcon = document.querySelector(".weather-icon");
+
 const forecastContainer = document.querySelector(".forecast");
 
-async function getForecast(city) {
+async function getWeatherData(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    return response.json();
+}
+
+async function getForecastData(city) {
     const response = await fetch(forecastUrl + city + `&appid=${apiKey}`);
-    const data = await response.json();
-    return data;
+    return response.json();
 }
 
 function updateForecast(data) {
     const forecastContainer = document.querySelector('.forecast-container');
-    forecastContainer.innerHTML = ""; 
+    forecastContainer.innerHTML = "";
 
-    const forecastData = data.list.slice(0, 5); 
+    const forecastData = data.list.slice(0, 5);
 
     forecastData.forEach(item => {
         const date = new Date(item.dt * 1000);
         const temperature = item.main.temp;
-        const iconUrl = `images/${item.weather[0].main.toLowerCase()}.png`; 
+        const iconUrl = `images/${item.weather[0].main.toLowerCase()}.png`;
 
         const forecastItem = document.createElement('div');
         forecastItem.classList.add('forecast-item');
@@ -40,47 +46,51 @@ function updateForecast(data) {
     });
 }
 
-async function checkWeather(city) {
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-    const data = await response.json();
-
+function updateWeather(data) {
     document.querySelector(".city").innerHTML = data.name;
     document.querySelector(".temp").innerHTML = data.main.temp + "°C";
     document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
     document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
 
-    if (data.weather[0].main == "Clouds") {
-        weatherIcon.src = "images/clouds.png";
-        document.body.style.backgroundImage = "url('images/clouds_wp.jpg')";
-    } else if (data.weather[0].main == "Clear") {
-        weatherIcon.src = "images/clear.png";
-        document.body.style.backgroundImage = "url('images/clear_wp.jpg')";
-    } else if (data.weather[0].main == "Rain") {
-        weatherIcon.src = "images/rain.png";
-        document.body.style.backgroundImage = "url('images/rain_wp.jpg')";
-    } else if (data.weather[0].main == "Drizzle") {
-        weatherIcon.src = "images/drizzle.png";
-        document.body.style.backgroundImage = "url('images/drizzle_wp.jpeg')";
-    } else if (data.weather[0].main == "Mist") {
-        weatherIcon.src = "images/mist.png";
-    } else if (data.weather[0].main == "Snow") {
-        weatherIcon.src = "images/snow.png";
-        document.body.style.backgroundImage = "url('images/snow_wp.jpeg')";
-    }
+    const weatherMain = data.weather[0].main.toLowerCase();
+    weatherIcon.src = `images/${weatherMain}.png`;
 
-    getForecast(city)
-        .then(data => updateForecast(data))
-        .catch(error => console.error('Error fetching forecast data:', error));
+    document.body.style.backgroundImage = `url('images/${weatherMain}_wp.jpg')`;
+}
+
+async function checkWeather(city) {
+    try {
+        const weatherData = await getWeatherData(city);
+        const forecastData = await getForecastData(city);
+
+        updateWeather(weatherData);
+        updateForecast(forecastData);
+        searchBar1.value = "";
+        searchBar2.value = "";
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
 }
 
 function checkWeatherOnEnter(event) {
     if (event.key === "Enter") {
-        checkWeather(searchBar.value);
+        checkWeather(event.target.value);
     }
 }
 
-searchBar.addEventListener("keydown", checkWeatherOnEnter);
+function checkWeatherOnEnter(event) {
+    if (event.key === "Enter") {
+        checkWeather(event.target.value);
+    }
+}
 
-searchBtn.addEventListener("click", () => {
-    checkWeather(searchBar.value);
+searchBtn1.addEventListener("click", () => {
+    checkWeather(searchBar1.value);
 });
+
+searchBtn2.addEventListener("click", () => {
+    checkWeather(searchBar2.value);
+});
+
+searchBar1.addEventListener("keydown", checkWeatherOnEnter);
+searchBar2.addEventListener("keydown", checkWeatherOnEnter);
