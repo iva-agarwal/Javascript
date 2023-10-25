@@ -1,105 +1,163 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
-
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-text-color: #000000;
-    --secondary-text-color: #8a8c8e;
-    --accent-color: #b75050;
-    --accent-color-dark: #592020;
-}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
 
 body {
-    font-family: "Poppins", sans-serif;
-    color: var(--primary-text-color);
-    background-color: rgb(185, 223, 241);
-}
-
-p {
-    font-family: "Roboto", sans-serif;
-    color: var(--secondary-text-color);
-    line-height: 1.4rem;
-}
-
-a {
-    text-decoration: none;
-}
-
-h1{
-    font-size: 42px;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    color: white;
+    background-color: rgba(96, 91, 91, 0.3); 
+    background-image: url(images/clear_wp.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay; 
+    height: 100vh;
+    margin: 0;
 }
 
-.flex {
+
+.main {
     display: flex;
-    align-items: center;
-}
-
-.container {
-    max-width: 1180px;
-    margin-inline: auto;
-    overflow: hidden;
-}
-.hover-link {
-    cursor: pointer;
-}
-
-.hover-link:hover {
-    color: var(--secondary-text-color);
-}
-
-.hover-link:active {
-    color: red;
-}
-
-.nav-item.active {
-    color: var(--accent-color);
-}
-
-
-main {
-    padding-block: 20px;
-}
-
-.cards-container {
     justify-content: space-between;
-    flex-wrap: wrap;
-    row-gap: 20px;
-    align-items: start;
+    align-items: flex-start;
+    padding: 0px;
+    margin: 0;
+    height: 100%;
+}
+
+.top-left {
+    text-align: left;
 }
 
 .card {
-    width: 360px;
-    border-radius: 15px;
-    min-height: 400px;
-    box-shadow: 0 0 8px #337dc7;
-    border-radius: 4px;
-    cursor: pointer;
-    background-color: #fff;
-    overflow: hidden;
-    transition: all 0.3s ease;
+    z-index: 1;
+    height: 100vh;
+    width: 30%;
+    padding: 0px;
+    margin: 0;
+    background: rgba(242, 249, 250, 0.13);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.2px);
+    -webkit-backdrop-filter: blur(7.2px);
+    border: 1px solid rgba(242, 249, 250, 0.96);
 }
 
-.card:hover {
-    box-shadow: 2px 2px 10px #276190;
-    background-color: #f9fdff;
-    transform: scale(1.05);
-}
-
-.card-header img {
+.search-bar {
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    display: flex;
+    flex-direction: row;
+}
+.min{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    padding: 80px;
 }
 
-.card-content {
-    padding: 12px;
+.search1, .search2 {
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    margin: 20px;
 }
 
-.news-source {
-    margin-block: 12px;
+button {
+    border: none;
+    outline: none;
+    width: 60px;
+    border-radius: 50%;
+    background-color: transparent;
 }
+
+.search-icon1, .search-icon2 {
+    width: 20px;
+    border-radius: 50%;
+}
+.temperature {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+
+.temp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+.temp img {
+    margin-right: 10px; 
+}
+h3.city{
+    font-size: 30px;
+    margin: 10px;
+}
+.extras {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+h1.main-text {
+    font-size: 50px;
+    font-family: 'Pacifico', cursive;
+    color: #94cfe4;
+}
+
+h1.temp {
+    font-size: 40px;
+    color: white;
+}
+
+.error {
+    text-align: left;
+    margin-left: 10px;
+    display: none;
+}
+.forecast-container {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 40px;
+}
+@media only screen and (max-width: 800px) {
+    .card {
+    display: none;
+} 
+}
+@media only screen and (min-width: 800px){
+.min{
+    display: none;
+}
+}
+
+.forecast-item {
+    display: flex;
+   
+    margin-bottom: 10px;
+}
+
+.forecast-item img {
+    margin-right: 10px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    
+}
+.details>p{
+    margin: 0;
+    padding: 0;
+}
+
