@@ -1,163 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     text-align: center;
-    color: white;
-    background-color: rgba(96, 91, 91, 0.3); 
-    background-image: url(images/clear_wp.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: overlay; 
-    height: 100vh;
-    margin: 0;
+}
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 42px; 
+    font-weight: bold;
+    margin-top: 50px; 
+}
+p {
+    font-family: "Roboto", sans-serif;
+    line-height: 1.4rem;
 }
 
+a {
+    text-decoration: none;
+}
 
-.main {
+ul {
+    list-style: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin-inline: auto;
+    overflow: hidden;
+}
+
+nav {
+    background-color: #f3faff;
+    box-shadow: 0 0 4px #bbd0e2;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    left: 0;
+    right: 0;
+}
+
+main {
+    padding-block: 20px;
+    margin-top: 80px;
+}
+
+.cards-container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 0px;
-    margin: 0;
-    height: 100%;
-}
-
-.top-left {
-    text-align: left;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    align-items: start;
 }
 
 .card {
-    z-index: 1;
-    height: 100vh;
-    width: 30%;
-    padding: 0px;
-    margin: 0;
-    background: rgba(242, 249, 250, 0.13);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(7.2px);
-    -webkit-backdrop-filter: blur(7.2px);
-    border: 1px solid rgba(242, 249, 250, 0.96);
+    width: calc(33.33% - 20px);
+    box-shadow: 0 0 4px #d4ecff;
+    border: 4px solid #000; 
+   height: 500px;
+    cursor: pointer;
+    background-color: #fff;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+    box-sizing: border-box; 
 }
 
-.search-bar {
+.card:hover {
+    box-shadow: 1px 1px 8px #d4ecff;
+    background-color: #f9fdff;
+    transform: translateY(-2px);
+}
+
+.card-header {
+    position: relative;
+}
+
+.card-header img {
     width: 100%;
-    display: flex;
-    flex-direction: row;
+    height: 200px;
+    object-fit: cover;
 }
-.min{
+
+.card-header:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    margin: auto;
-    padding: 80px;
+    height: 100%;
 }
 
-.search1, .search2 {
-    width: 80%;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    margin: 20px;
+.card-content {
+    padding: 20px;
 }
 
-button {
-    border: none;
-    outline: none;
-    width: 60px;
-    border-radius: 50%;
-    background-color: transparent;
-}
-
-.search-icon1, .search-icon2 {
-    width: 20px;
-    border-radius: 50%;
-}
-.temperature {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-}
-
-.temp {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 60px;
-    margin: 0;
-    padding: 0;
-}
-
-.temp img {
-    margin-right: 10px; 
-}
-h3.city{
-    font-size: 30px;
-    margin: 10px;
-}
-.extras {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    padding: 30px;
-}
-
-h1.main-text {
-    font-size: 50px;
-    font-family: 'Pacifico', cursive;
-    color: #94cfe4;
-}
-
-h1.temp {
-    font-size: 40px;
-    color: white;
-}
-
-.error {
-    text-align: left;
-    margin-left: 10px;
-    display: none;
-}
-.forecast-container {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    margin-top: 40px;
-}
-@media only screen and (max-width: 800px) {
-    .card {
-    display: none;
-} 
-}
-@media only screen and (min-width: 800px){
-.min{
-    display: none;
-}
-}
-
-.forecast-item {
-    display: flex;
-   
+h3#news-title {
+    font-size: 1.8rem;
     margin-bottom: 10px;
 }
 
-.forecast-item img {
-    margin-right: 10px;
+.news-source {
+    margin-block: 12px;
+    font-style: italic;
 }
-
-.icon {
-    margin-right: 10px;
-}
-
-.details {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    
-}
-.details>p{
-    margin: 0;
-    padding: 0;
-}
-
